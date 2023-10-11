@@ -14,18 +14,28 @@
     @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
     <br/>
     <h4>Keith's Rating</h4>
-    @Html.NumberBoxFor(model => model.Rating)
+    @Html.RadioButtonFor(model => model.Rating, 1)<b> 1</b>
+    @Html.RadioButtonFor(model => model.Rating, 2)<b> 2</b>
+    @Html.RadioButtonFor(model => model.Rating, 3)<b> 3</b>
+    @Html.RadioButtonFor(model => model.Rating, 4)<b> 4</b>
+    @Html.RadioButtonFor(model => model.Rating, 5)<b> 5</b>
+    <br />
     @Html.ValidationMessageFor(model => model.Rating, "", new { @class = "text-danger" })
-    @Html.CheckBoxFor(model => model.Unionized)
-    @Html.NumberBoxFor(model => model.PriceRange)
+    <br />
+    <h4>Unionized?</h4>
+    @Html.CheckBoxFor(model => model.Unionized) @:Yes
+    <br />
+    <h4>Price</h4>
+    @Html.TextBoxFor(model => model.PriceRange, new { type = "number" })
     @Html.ValidationMessageFor(model => model.PriceRange, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    <input type="submit" value="Submit" class="btn btn-primary"/>
   }
 </div>
 
-    
+<br />
+<h5>@Html.ActionLink("Back to Coffee Shops", "Index")</h5>
     
 
-   
-
-    [Range(1, 5, ErrorMessage "Set your price range between 1-5")] // auto requires something between 1 and 5, so empty would make this unhappy
-    public int PriceRange { get; set; }
+  

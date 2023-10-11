@@ -11,14 +11,15 @@ namespace KeithsCoffee.Controllers
   {
     private readonly KeithsCoffeeContext _db;
 
-    public CoffeeShopsContoller(KeithsCoffeeContext db)
+    public CoffeeShopsController(KeithsCoffeeContext db)
     {
       _db = db;
     }
 
     public ActionResult Index()
     {
-      return View();
+      List<CoffeeShop> model = _db.CoffeeShops.ToList();
+      return View(model);
     }
 
     public ActionResult Create()
@@ -35,7 +36,7 @@ namespace KeithsCoffee.Controllers
       }
       _db.CoffeeShops.Add(coffeeShop);
       _db.SaveChanges();
-      return RedirectToAction("Index", "Home") //redirect to home page???????
+      return RedirectToAction("Index"); //redirect to home page???????
     }
 
   }

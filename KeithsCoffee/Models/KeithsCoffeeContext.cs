@@ -8,6 +8,6 @@ namespace KeithsCoffee.Models
     public DbSet<CoffeeShop> CoffeeShops { get; set; }
     public DbSet <CoffeeShopDrink> CoffeeShopDrinks { get; set; }
     
-    public KeithsCoffeeContext(DbContextOptions options) : base(options) {}
+    public KeithsCoffeeContext(DbContextOptions options) : base(options) { }
   }
 }
