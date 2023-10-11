@@ -9,7 +9,7 @@ namespace KeithsCoffee.Controllers
 {
   public class HomeController : Controller
   {
-    private readonly KethsCoffeeContext _db;
+    private readonly KeithsCoffeeContext _db;
 
     public HomeController(KeithsCoffeeContext db)
     {
