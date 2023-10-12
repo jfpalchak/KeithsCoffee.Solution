@@ -1,0 +1,38 @@
+@{
+  Layout = "_Layout";
+}
+
+@model KeithsCoffee.Models.CoffeeShopDrink
+@using KeithsCoffee.Models;
+
+<h1>Review Drink for a New Coffee Shop</h1>
+<hr/>
+
+<div class="container">
+  @using (Html.BeginForm())
+  {
+    @* @Html.HiddenFor(model => model.DrinkId) *@
+    @Html.Hidden("drinkId", Model.DrinkId)
+    <br/>
+    @Html.Label("Select a Coffee Shop")
+    @Html.DropDownList("CoffeeShopId")
+    <br/>
+    @*
+    @Html.Label("Drink Price")
+    @Html.TextBoxFor(model => model.Price, new { type = "number" })
+    @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+    <br/><br/>
+    @Html.Label("Review Date")
+    @Html.TextBoxFor(model => model.DateOfReview, new { type = "date" })
+    <br/><br/>
+    @Html.Label("Review Notes: ")
+    @Html.TextAreaFor(model => model.Notes)
+    <br/>
+    *@
+    <input type="submit" value="Submit" class="btn btn-primary" />
+  }
+</div>
+
+<div class="container">
+  <h5>@Html.ActionLink("Back to Drinks", "Index")</h5>
+</div>

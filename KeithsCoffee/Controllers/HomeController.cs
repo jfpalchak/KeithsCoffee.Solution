@@ -18,7 +18,12 @@ namespace KeithsCoffee.Controllers
 
     public ActionResult Index()
     {
-      return View();
+      List<CoffeeShopDrink> model = _db.CoffeeShopDrinks
+                                                        .Include(shopDrink => shopDrink.CoffeeShop)
+                                                        .Include(shopDrink => shopDrink.Drink)
+                                                        .OrderByDescending(shopDrink => shopDrink.DateOfReview)
+                                                        .ToList();
+      return View(model);
     }
   }
 }

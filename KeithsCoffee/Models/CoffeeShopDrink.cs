@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System;
-// using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 
 namespace KeithsCoffee.Models
@@ -14,11 +14,14 @@ namespace KeithsCoffee.Models
     public Drink Drink { get; set; }
 
     public DateTime DateOfReview { get; set; }
+
     //re add nullable type my dude?
 
     public string Notes { get; set; }
 
-    // [Range(1, 5, ErrorMessage = "Set your price range between 1-5")]
+    [Range(1, 5, ErrorMessage = "Set your price range between 1-5")]
     public int Price { get; set; }
+    [Range(1, 5, ErrorMessage = "Set your Rating between 1-5")]
+    public int Rating { get; set; }
   }
 }

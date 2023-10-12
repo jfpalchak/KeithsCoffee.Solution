@@ -1,0 +1,39 @@
+@{
+  Layout = "_Layout";
+}
+
+@model KeithsCoffee.Models.CoffeeShopDrink;
+@using KeithsCoffee.Models;
+@using System.Collections.Generic;
+
+<h1>Coffee Shop Drink Review</h1>
+
+<h3>@Html.DisplayNameFor(model => model.DateOfReview): @Model.DateOfReview.ToShortDateString()</h3>
+<br />
+<h3>@Html.DisplayNameFor(model => model.Rating): 
+@foreach (var i in Enumerable.Range(1, Model.Rating))
+{
+    <img src="~/img/bean.svg" alt="Bean" />
+}
+</h3>
+<br />
+<h3>Coffee Shop: @Html.DisplayFor(model => model.CoffeeShop.Name)</h3>
+<br />
+<h3>Drink: @Html.DisplayFor(model => model.Drink.Name)</h3>
+<br />
+<h3>@Html.DisplayNameFor(model => model.Notes): @Html.DisplayFor(model => model.Notes)</h3>
+<br />
+<h3>@Html.DisplayNameFor(model => model.CoffeeShop.Unionized): @if (Model.CoffeeShop.Unionized)
+{
+  <img src="~/img/Bernie.jpg" alt="Bernie Sanders sitting in a chair" />
+}
+else 
+{
+  <img src="~/img/Reagan.png" alt="Ronald Reagan with red eyes"/>
+}
+</h3>
+<br />
+
+<h5>@Html.ActionLink("Back to Reviews", "Index")</h5>
+@* @Html.DisplayFor(model => model.Unionized) *@
+<h3></h3>

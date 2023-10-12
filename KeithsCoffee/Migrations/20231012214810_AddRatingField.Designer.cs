@@ -3,6 +3,7 @@ using System;
 using KeithsCoffee.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KeithsCoffee.Migrations
 {
     [DbContext(typeof(KeithsCoffeeContext))]
-    partial class KeithsCoffeeContextModelSnapshot : ModelSnapshot
+    [Migration("20231012214810_AddRatingField")]
+    partial class AddRatingField
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

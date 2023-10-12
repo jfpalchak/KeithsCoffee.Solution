@@ -74,5 +74,28 @@ namespace KeithsCoffee.Controllers
       Drink thisDrink = _db.Drinks.Include(drink => drink.JoinEntities).ThenInclude(join => join.CoffeeShop).FirstOrDefault(drink => drink.DrinkId == id);
     return View(thisDrink);
     }
+
+    public ActionResult AddCoffeeShop(int id)
+    {
+      Drink thisDrink = _db.Drinks.FirstOrDefault(drink => drink.DrinkId == id);
+      ViewBag.CoffeeShopId = new SelectList(_db.CoffeeShops, "CoffeeShopId", "Name");
+      return View(thisDrink);
+    }
+    
+    // [HttpPost]
+    // public ActionResult AddCoffeeShop(int drinkId, int coffeeShopId, CoffeeShopDrink newReview)
+    // {
+    //   #nullable enable
+    //   CoffeeShopDrink? joinEntity = _db.CoffeeShopDrinks.FirstOrDefault(join => (join.CoffeeShopId == coffeeShopId && join.DrinkId == drinkId));
+    //   #nullable disable
+      
+    //   if (joinEntity == null && coffeeShopId != 0)
+    //   {
+    //     _db.CoffeeShopDrinks.Add(newReview);
+    //     _db.SaveChanges();
+    //   }
+
+    //   return RedirectToAction("Details", new { id = drinkId });
+    // }
   }
 }

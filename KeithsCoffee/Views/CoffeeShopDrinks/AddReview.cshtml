@@ -1,18 +1,33 @@
-@* <!-- @{
+@{
   Layout = "_Layout";
 }
 
-
-@model KeithsCoffee.Models 
+@model KeithsCoffee.Models.CoffeeShopDrink;
+@using KeithsCoffee.Models; 
 
 @using (Html.BeginForm())
 {
-  @Html.HiddenFor(model => model.CourseId)
-  @Html.Label("Select student")
-  @Html.DropDownList("StudentId")
+  @Html.Label("Select the Coffee Shop")
+  @Html.DropDownList("CoffeeShopId")
+  <br/><br/>
+  @Html.Label("Select the Drink Order")
+  @Html.DropDownList("DrinkId")
+  <br/><br/>
+  @Html.Label("Drink Price")
+  @Html.TextBoxFor(model => model.Price, new { type = "number" })
+  @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+  <br/><br/>
+  @Html.Label("Review Date")
+  @Html.TextBoxFor(model => model.DateOfReview, new { type = "date" })
+  <br/><br/>
+  @Html.Label("Drink Rating")
+  @Html.TextBoxFor(model => model.Rating, new { type = "number" })
+  @Html.ValidationMessageFor(model => model.Rating, "", new { @class = "text-danger" })
+  <br/><br/>
+  @Html.Label("Review Notes: ")
+  @Html.TextAreaFor(model => model.Notes)
+  <br/>
   <input type="submit" value="save" />
 }
-
-<div class="container">
-  <h5>@Html.ActionLink("Back to courses", "Index")</h5>
-</div>  --> *@
+<br/>
+<h5>@Html.ActionLink("Back Home", "Index", "Home")</h5>
