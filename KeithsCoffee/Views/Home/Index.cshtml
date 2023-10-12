@@ -5,34 +5,40 @@
 <div class="container">
   <div class="row">
     <div class="col-3">
-<img class="keith" src="~/img/Keef.png" alt="a photo of our caffiene fueled savior wearing some rad hats"/>
-</div>
-<div class="col-8">
-<h1>Keith's Coffee Corner</h1>
-<hr/>
-@using KeithsCoffee.Models;
-@model List<KeithsCoffee.Models.CoffeeShopDrink>
+      <img class="keith" src="~/img/Keef.png" alt="a photo of our caffiene fueled savior wearing some rad hats" />
+    </div>
+    <div class="col-8">
+      <h1>Keith's Coffee Corner</h1>
+      <hr />
+      @using KeithsCoffee.Models;
+      @model List<KeithsCoffee.Models.CoffeeShopDrink>
 
-<h1>Recent reviews</h1>
-<div class="reviews container">
-  @if (Model.Count == 0)
-  {
-    <h3>No drinks have been reviewed yet!</h3>
+      <h1>Recent reviews</h1>
+      <div class="reviews container">
+        @if (Model.Count == 0)
+        {
+          <h3>No drinks have been reviewed yet!</h3>
 
-  }
-  else
-  {
-    <ul>
-      @foreach (CoffeeShopDrink coffeeShopDrink in Model)
-      {
-        <h4><li>@Html.ActionLink(coffeeShopDrink.CoffeeShop.Name, "Details", "CoffeeShopDrinks", new { id = coffeeShopDrink.CoffeeShopDrinkId })  | @coffeeShopDrink.Drink.Name</li></h4>
-      }
-    </ul>  
-  }
+        }
+        else
+        {
+          <ul>
+            @foreach (CoffeeShopDrink coffeeShopDrink in Model)
+            {
+              <h4>
+                <li>@Html.ActionLink(coffeeShopDrink.CoffeeShop.Name, "Details", "CoffeeShopDrinks", new
+                    {
+                      id =
+                       coffeeShopDrink.CoffeeShopDrinkId
+                    }) | @coffeeShopDrink.Drink.Name</li>
+              </h4>
+            }
+          </ul>
+        }
+      </div>
+    </div>
   </div>
 </div>
-</div> 
-</div> 
 
 <div class="links container">
   <h5>@Html.ActionLink("View Coffee Shops", "Index", "CoffeeShops")</h5>
