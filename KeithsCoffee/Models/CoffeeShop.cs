@@ -20,7 +20,6 @@ namespace KeithsCoffee.Models
     // auto requires something between 1 and 5, so empty would make this unhappy
     public int PriceRange { get; set; }
 
-    // Collection Navigation Property
     public List<CoffeeShopDrink> JoinEntities { get; }
   }
 }

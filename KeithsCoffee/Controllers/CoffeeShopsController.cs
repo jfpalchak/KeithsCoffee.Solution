@@ -38,6 +38,14 @@ namespace KeithsCoffee.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index"); //redirect to home page???????
     }
+    public ActionResult Details(int id)
+    {
+      CoffeeShop thisCoffeeShop = _db.CoffeeShops
+                              .Include(coffeeShop => coffeeShop.JoinEntities)
+                              .ThenInclude(join => join.Drink)
+                              .FirstOrDefault(coffeeShop => coffeeShop.CoffeeShopId == id);
+      return View(thisCoffeeShop);
+    }
 
   }
 }

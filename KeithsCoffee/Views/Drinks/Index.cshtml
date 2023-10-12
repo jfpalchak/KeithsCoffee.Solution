@@ -1,0 +1,25 @@
+@{
+  Layout = "_Layout";
+}
+
+@using KeithsCoffee.Models;
+
+<h1>Drinks</h1>
+
+@if (Model.Count == 0)
+{
+  <h3>No drinks have been reviewed yet!</h3>
+
+}
+else
+{
+  <ul>
+    @foreach (Drink drink in Model)
+    {
+      <li>@Html.ActionLink(drink.Name, "Details", new { id = drink.DrinkId })</li>
+    }
+  </ul>  
+}
+
+<p>@Html.ActionLink("Add new drink", "Create")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

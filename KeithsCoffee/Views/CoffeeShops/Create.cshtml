@@ -25,7 +25,7 @@
     <h4>Unionized?</h4>
     @Html.CheckBoxFor(model => model.Unionized) @:Yes
     <br />
-    <h4>Price</h4>
+    <h4>Price Range</h4>
     @Html.TextBoxFor(model => model.PriceRange, new { type = "number" })
     @Html.ValidationMessageFor(model => model.PriceRange, "", new { @class = "text-danger" })
     <br />

@@ -1,0 +1,34 @@
+@{
+  Layout = "_Layout";
+}
+
+@model KeithsCoffee.Models.Drink;
+@using KeithsCoffee.Models;
+@using System.Collections.Generic;
+
+<h1>Drink Details</h1>
+  <hr />
+
+  <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+  <br />
+
+  @if (@Model.JoinEntities.Count == 0)
+  {
+    <p>This drink has not been reviewed at any Coffee Shops yet.</p>
+  }
+  else
+  {
+    <h4>This drink has been reviewed at the following Coffee Shops...</h4>
+    <ul>
+    @foreach (CoffeeShopDrink join in Model.JoinEntities)
+      {
+        <li>@join.CoffeeShop.Name</li>
+      }
+    </ul>  
+  }
+
+<br/>
+
+<div class="container">
+  <h5>@Html.ActionLink("Back to Drinks", "Index")</h5>
+</div>
