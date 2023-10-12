@@ -7,23 +7,26 @@
 <h1>Edit Drink</h1>
 <hr/>
 
-<h3>Edit this drink: @Html.DisplayFor(model => model.Name)</h3>
+<div class="container">
+  <h3>Edit this drink: @Html.DisplayFor(model => model.Name)</h3>
 
-<br/>
+  <br/>
 
-@using (Html.BeginForm())
-{
-  @Html.HiddenFor(model => model.DrinkId)
+  @using (Html.BeginForm())
+  {
+    @Html.HiddenFor(model => model.DrinkId)
 
-  @Html.LabelFor(model => model.Name)
-  <br/>
-  @Html.EditorFor(model => model.Name)
-  <br/>
-  <br/>
-  <input type="submit" value="Save" class="btn btn-success" />
-}
+    @Html.LabelFor(model => model.Name)
+    <br/>
+    @Html.EditorFor(model => model.Name)
+    <br/>
+    <br/>
+    <input type="submit" value="Save" class="btn btn-success" />
+  }
+</div>
 
 <br>
+
 <div class="container">
   <h5>@Html.ActionLink("Back to Drink", "Details", new { id = Model.DrinkId })</h5>
 </div>
